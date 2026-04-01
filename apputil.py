@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 
 class GroupEstimate(object):
@@ -58,7 +59,7 @@ class GroupEstimate(object):
 
             # If the filtered dataframe is empty, add NaN to the list
             if filter.empty:
-                estimates.append(pd.NA)
+                estimates.append(np.nan)
 
             # Otherwise, add the y value
             else:
@@ -66,7 +67,7 @@ class GroupEstimate(object):
                 # (Converting to float to match example in exercises)
                 estimates.append(float(filter['y'].iloc[0]))
 
-        return estimates
+        return np.array(estimates)
 
 
 # For testing
